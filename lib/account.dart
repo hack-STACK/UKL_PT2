@@ -14,18 +14,18 @@ class AccountPage extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 50,
-              backgroundImage: NetworkImage('https://via.placeholder.com/150'), // Ganti dengan URL gambar profil
+              backgroundImage: NetworkImage('https://th.bing.com/th/id/OIP.w3Rb-9V_v6JzHBLzrsrBSgHaFj?w=216&h=180&c=7&r=0&o=5&pid=1.7'), // Ganti dengan URL gambar profil
             ),
             const SizedBox(height: 20),
             const Text(
-              'Nama Pengguna',
+              'Muhammad Najwan Hibatullah',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const Text(
-              'email@domain.com', // Ganti dengan email pengguna
+              'sangatrashaisa@gmail.com', // Ganti dengan email pengguna
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey,
@@ -59,7 +59,7 @@ class AccountPage extends StatelessWidget {
             const SizedBox(height: 20),
             ListTile(
               leading: const Icon(Icons.person),
-              title: const Text('Profil Saya'),
+              title: const Text('Ubah'),
               onTap: () {
                 // Tambahkan navigasi ke halaman profil
               },

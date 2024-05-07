@@ -137,7 +137,7 @@ class OrderDetailPage extends StatelessWidget {
               'Tanggal: ${order.date}',
             ),
             SizedBox(height: 10),
-            Image.network(order.imageUrl),
+            Image.network(order.pesanan),
           ],
         ),
       ),
@@ -167,7 +167,8 @@ class OrderListItem extends StatelessWidget {
   final Order order;
   final VoidCallback onTap;
 
-  const OrderListItem({Key? key, required this.order, required this.onTap}) : super(key: key);
+  const OrderListItem({Key? key, required this.order, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -208,36 +209,43 @@ class Order {
   final String date;
   final int unreadCount;
   final String imageUrl;
+  final String pesanan;
 
-  Order({
-    required this.contactName,
-    required this.status,
-    required this.date,
-    required this.unreadCount,
-    required this.imageUrl,
-  });
+  Order(
+      {required this.contactName,
+      required this.status,
+      required this.date,
+      required this.unreadCount,
+      required this.imageUrl,
+      required this.pesanan});
 }
 
 List<Order> orders = [
   Order(
-    contactName: 'John Doe',
-    status: 'Halo, apa kabar?',
-    date: '10:00',
-    unreadCount: 2,
-    imageUrl: 'https://via.placeholder.com/150',
-  ),
+      contactName: 'Mas Amba',
+      status: 'Paket dijalan',
+      date: '10:00',
+      unreadCount: 2,
+      imageUrl:
+          'https://th.bing.com/th/id/OIP.d8d93S6N06f7soEyASujvgHaEK?w=291&h=180&c=7&r=0&o=5&pid=1.7',
+      pesanan:
+          'https://th.bing.com/th/id/OIP.23PDSE_6iKWch4r9O8YybAHaHa?w=196&h=197&c=7&r=0&o=5&pid=1.7'),
   Order(
-    contactName: 'Jane Doe',
-    status: 'Pesanan sudah diproses',
-    date: '09:30',
-    unreadCount: 0,
-    imageUrl: 'https://via.placeholder.com/150',
-  ),
+      contactName: 'Mas roni',
+      status: 'Pesanan sudah diproses',
+      date: '09:30',
+      unreadCount: 0,
+      imageUrl:
+          'https://th.bing.com/th/id/OIP.VQcbubSTfjvLzc3mNc557AHaGK?w=197&h=180&c=7&r=0&o=5&pid=1.7',
+      pesanan:
+          'https://th.bing.com/th/id/OIP.PkjYh11PN2ClteM-alVizgHaEp?w=313&h=197&c=7&r=0&o=5&pid=1.7'),
   Order(
-    contactName: 'Alice Smith',
-    status: 'Ok, terima kasih',
-    date: 'Yesterday',
-    unreadCount: 0,
-    imageUrl: 'https://via.placeholder.com/150',
-  ),
+      contactName: 'Imroni',
+      status: 'Menunggu konfirmasi',
+      date: 'Yesterday',
+      unreadCount: 0,
+      imageUrl:
+          'https://th.bing.com/th/id/OIP.nLTaQHTV7lfW0u0shGrhuwAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7',
+      pesanan:
+          'https://th.bing.com/th/id/OIP.YKnJRVUtX4vUYqoabQzSQQHaEe?w=289&h=180&c=7&r=0&o=5&pid=1.7'),
 ];

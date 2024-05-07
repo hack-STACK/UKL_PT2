@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:ukl2/homepage.dart';
 import 'package:ukl2/order.dart';
-import 'package:ukl2/account.dart' as Account; // Gunakan alias AccountPage
+import 'package:ukl2/account.dart' as Account;
+import 'package:ukl2/splashscree.dart'; // Gunakan alias AccountPage
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Future.delayed(
+    Duration(seconds: 5),
+  );
+  FlutterNativeSplash.remove();
   runApp(MyApp());
 }
 

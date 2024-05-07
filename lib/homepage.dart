@@ -5,46 +5,101 @@ class Homepage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Your App Title"),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/logo_yellow.png',
+              fit: BoxFit.cover,
+              height: 32,
+            ),
+          ],
+        ),
       ),
-      body: ListView(
+      body: Stack(
         children: [
-          _buildGreetings(),
-          _buildServiceSelection(),
-          const SizedBox(height: 20),
-          _buildBannerImage(),
-          const SizedBox(height: 10),
-          _buildPartnerStoreInfo(),
-          const SizedBox(height: 20), // Add some space at the bottom
-          _buildFinancialPartnerSection(), // Add financial partner section
-          const SizedBox(
-              height: 20), // Add some space between financial partner and news
-          _buildSeparator(), // Add separator
-          const SizedBox(
-              height: 20), // Add some space between separator and news
-          _buildNewsSection(), // Add news section
-          const SizedBox(height: 20), // Add some space between news and tips
-          _buildTipsSection(), // Add tips section
-          const SizedBox(height: 20), // Add some space at the bottom
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [
+                  Colors.yellow,
+                  Colors.yellow.withOpacity(0.5),
+                  Colors.yellow.withOpacity(0.2),
+                ],
+              ),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(100),
+              ),
+            ),
+            child: ListView(
+              children: [
+                const SizedBox(height: 20), // Add some space
+                _buildGreetings(context),
+                const SizedBox(height: 20), // Add some space
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      _buildServiceSelection(),
+                      const SizedBox(height: 20),
+                      _buildBannerImage(),
+                      const SizedBox(height: 10),
+                      _buildPartnerStoreInfo(),
+                      const SizedBox(
+                          height: 20), // Add some space at the bottom
+                      _buildFinancialPartnerSection(), // Add financial partner section
+                      const SizedBox(
+                        height: 20,
+                      ), // Add some space between financial partner and news
+                      _buildSeparator(), // Add separator
+                      const SizedBox(
+                        height: 20,
+                      ), // Add some space between separator and news
+                      _buildNewsSection(), // Add news section
+                      const SizedBox(
+                          height: 20), // Add some space between news and tips
+                      _buildTipsSection(), // Add tips section
+                      const SizedBox(
+                          height: 20), // Add some space at the bottom
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildGreetings() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+  Widget _buildGreetings(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Hi, abidin",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            "Hi, Abidin!",
+            style: Theme.of(context).textTheme.headline6?.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.white.withOpacity(0.5),
+                ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             "Pilih layanan yang sesuai dengan kebutuhan",
-            style: TextStyle(fontSize: 16),
+            style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                  color: Colors.black,
+                  backgroundColor: Colors.white.withOpacity(0.5),
+                ),
           ),
         ],
       ),
@@ -259,14 +314,14 @@ class Homepage2 extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 18),
           child: Text(
             "Tips Memilih Furniture",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
           height: 200, // Set a fixed height for the container
           child: ListView(
@@ -329,10 +384,10 @@ class Homepage2 extends StatelessWidget {
                     title,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     description,
-                    style: TextStyle(fontSize: 10),
+                    style: const TextStyle(fontSize: 10),
                   ),
                 ],
               ),
